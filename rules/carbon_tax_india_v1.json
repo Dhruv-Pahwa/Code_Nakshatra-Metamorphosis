@@ -1,0 +1,39 @@
+{
+  "policy_id": "carbon_tax_india_v1",
+  "name": "Carbon Tax (15% Fuel/Energy)",
+  "version": "v1",
+  "description": "15% excise on liquid fuels and coal-based power generation.",
+  "trigger_conditions": ["tax"],
+  "cge_ready": true,
+  "macro_effects": {
+    "gdp_change_pct": -0.4,
+    "cpi_change_pct": 2.1,
+    "sectoral_output_pct": { "agriculture": -0.5, "manufacturing": -3.2, "services": 0.0 },
+    "employment_change_pct": -0.7
+  },
+  "distribution_effects": {
+    "poor": { "real_income_change_pct": -5.0, "copc_change_pct": 6.2, "wage_index_change_pct": -1.1 },
+    "middle": { "real_income_change_pct": -2.1, "copc_change_pct": 3.4, "wage_index_change_pct": -0.8 },
+    "rich": { "real_income_change_pct": -0.6, "copc_change_pct": 1.5, "wage_index_change_pct": -0.2 }
+  },
+  "causal_chain": [
+    { "step": "Carbon Tax ↑15%", "effect": "Fuel & Power Prices ↑12–14%", "magnitude": "high", "confidence": "high" },
+    { "step": "Energy Price ↑", "effect": "Industrial Input Costs ↑3–4%", "magnitude": "medium", "confidence": "high" },
+    { "step": "Margin Compression", "effect": "Manufacturing Output ↓3.2%, Employment ↓0.7%", "magnitude": "medium", "confidence": "medium" },
+    { "step": "CPI ↑2.1% + Wage Pressure", "effect": "Poor Real Income ↓5.0% (high fuel/food budget share)", "magnitude": "high", "confidence": "high" },
+    { "step": "Asset/Export Buffer", "effect": "Rich Real Income ↓0.6% (lower consumption elasticity)", "magnitude": "low", "confidence": "medium" }
+  ],
+  "policylab_suggestions": [
+    { "variant_name": "Add Targeted Rural Transfer", "policy_delta": "Recycle 60% of tax revenue to bottom 2 income quintiles", "outcome_improvement": "Poor real income loss reduced from -5.0% to -1.8%", "tradeoff": "Reduces fiscal buffer; requires targeting infrastructure" },
+    { "variant_name": "Phased Rollout (24 months)", "policy_delta": "Apply 7.5% Y1, 15% Y2", "outcome_improvement": "GDP contraction smoothed to -0.1% Y1, -0.3% Y2; employment shock halved", "tradeoff": "Delays emission targets; requires policy credibility commitment" }
+  ],
+  "provenance": {
+    "baseline_sources": ["NSSO 77th Round", "RBI Annual Report 2023-24", "MOSPI CPI Weights"],
+    "key_assumptions": ["Closed-economy approximation", "Fixed factor mobility (short-run)", "Energy pass-through ~80%"],
+    "confidence_note": "Illustrative scenario using simplified CGE logic. Full multi-market equilibration pending."
+  },
+  "cge_placeholder": {
+    "required_inputs": ["social_accounting_matrix", "household_expenditure_matrix", "sectoral_energy_intensity"],
+    "expected_outputs": ["price_vector", "wage_vector", "output_vector", "household_utility_index"]
+  }
+}

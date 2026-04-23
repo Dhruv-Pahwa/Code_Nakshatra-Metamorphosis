@@ -1,0 +1,53 @@
+{
+  "fixture_id": "mixed_shock",
+  "class": "mixed",
+  "policy": {
+    "policies": [
+      {"id": "pol-tax", "policyType": "tax", "sliderValue": 35},
+      {"id": "pol-transfer", "policyType": "transfer", "sliderValue": 60},
+      {"id": "pol-labor", "policyType": "labor_supply", "sliderValue": 52},
+      {"id": "pol-capital", "policyType": "capital_supply", "sliderValue": 51}
+    ]
+  },
+  "expected": {
+    "baseline": {
+      "gdp": 154.5,
+      "tax_revenue": 17.459999,
+      "cpi": [1.101442, 1.079149, 1.063173],
+      "real_incomes": [48.681618, 47.509663, 46.662191],
+      "value_added": [54.2, 57.8, 36.4],
+      "capital": [20.0, 18.0, 9.0],
+      "total_labor": [48.0, 31.0]
+    },
+    "scenario": {
+      "gdp": 154.9006,
+      "tax_revenue": 13.808517,
+      "cpi": [1.07551, 1.054028, 1.03863],
+      "real_incomes": [49.988293, 48.775672, 47.877258],
+      "value_added": [54.358043, 57.983615, 36.4818],
+      "capital": [20.036, 18.0324, 9.0162],
+      "total_labor": [48.192, 31.124]
+    },
+    "delta": {
+      "gdp": {"absolute": 0.4006, "percent": 0.259288},
+      "tax_revenue": {"absolute": -3.651482, "percent": -20.913415},
+      "cpi": [{"absolute": -0.025932, "percent": -2.354368}, {"absolute": -0.025121, "percent": -2.327853}, {"absolute": -0.024543, "percent": -2.308467}],
+      "real_incomes": [{"absolute": 1.306675, "percent": 2.684124}, {"absolute": 1.266009, "percent": 2.66474}, {"absolute": 1.215067, "percent": 2.603965}],
+      "value_added": [{"absolute": 0.158043, "percent": 0.291592}, {"absolute": 0.183615, "percent": 0.317673}, {"absolute": 0.0818, "percent": 0.224725}],
+      "wages": [{"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}]
+    },
+    "invariants": {
+      "factorSupplyConsistency": 0.0,
+      "incomeExpenditureConsistency": 1.056541,
+      "marketClearingNorm": 0.0
+    }
+  },
+  "tolerances": {
+    "aggregate_abs": 0.000001,
+    "invariants": {
+      "residualNorm": 0.000000001,
+      "marketClearingNorm": 0.000000001,
+      "factorSupplyConsistency": 0.000000001
+    }
+  }
+}

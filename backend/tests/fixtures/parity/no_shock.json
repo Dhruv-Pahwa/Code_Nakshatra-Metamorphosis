@@ -1,0 +1,46 @@
+{
+  "fixture_id": "no_shock",
+  "class": "no-shock",
+  "policy": {"policies": []},
+  "expected": {
+    "baseline": {
+      "gdp": 154.5,
+      "tax_revenue": 17.459999,
+      "cpi": [1.101442, 1.079149, 1.063173],
+      "real_incomes": [48.681618, 47.509663, 46.662191],
+      "value_added": [54.2, 57.8, 36.4],
+      "capital": [20.0, 18.0, 9.0],
+      "total_labor": [48.0, 31.0]
+    },
+    "scenario": {
+      "gdp": 154.5,
+      "tax_revenue": 17.459999,
+      "cpi": [1.101442, 1.079149, 1.063173],
+      "real_incomes": [48.681618, 47.509663, 46.662191],
+      "value_added": [54.2, 57.8, 36.4],
+      "capital": [20.0, 18.0, 9.0],
+      "total_labor": [48.0, 31.0]
+    },
+    "delta": {
+      "gdp": {"absolute": 0.0, "percent": 0.0},
+      "tax_revenue": {"absolute": 0.0, "percent": 0.0},
+      "cpi": [{"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}],
+      "real_incomes": [{"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}],
+      "value_added": [{"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}],
+      "wages": [{"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}]
+    },
+    "invariants": {
+      "factorSupplyConsistency": 0.0,
+      "incomeExpenditureConsistency": 1.081756,
+      "marketClearingNorm": 0.0
+    }
+  },
+  "tolerances": {
+    "aggregate_abs": 0.000001,
+    "invariants": {
+      "residualNorm": 0.000000001,
+      "marketClearingNorm": 0.000000001,
+      "factorSupplyConsistency": 0.000000001
+    }
+  }
+}

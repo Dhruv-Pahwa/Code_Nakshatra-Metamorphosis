@@ -1,0 +1,46 @@
+{
+  "fixture_id": "capital_shock",
+  "class": "capital",
+  "policy": {"policies": [{"id": "pol-capital", "policyType": "capital_supply", "sliderValue": 60}]},
+  "expected": {
+    "baseline": {
+      "gdp": 154.5,
+      "tax_revenue": 17.459999,
+      "cpi": [1.101442, 1.079149, 1.063173],
+      "real_incomes": [48.681618, 47.509663, 46.662191],
+      "value_added": [54.2, 57.8, 36.4],
+      "capital": [20.0, 18.0, 9.0],
+      "total_labor": [48.0, 31.0]
+    },
+    "scenario": {
+      "gdp": 155.346,
+      "tax_revenue": 17.572765,
+      "cpi": [1.101442, 1.079149, 1.063173],
+      "real_incomes": [48.743065, 47.72917, 47.171459],
+      "value_added": [54.604386, 58.151264, 36.542825],
+      "capital": [20.36, 18.324, 9.162],
+      "total_labor": [48.0, 31.0]
+    },
+    "delta": {
+      "gdp": {"absolute": 0.846, "percent": 0.547573},
+      "tax_revenue": {"absolute": 0.112766, "percent": 0.645853},
+      "cpi": [{"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}],
+      "real_incomes": [{"absolute": 0.061447, "percent": 0.126222}, {"absolute": 0.219507, "percent": 0.462026}, {"absolute": 0.509268, "percent": 1.091393}],
+      "value_added": [{"absolute": 0.404386, "percent": 0.7461}, {"absolute": 0.351264, "percent": 0.607723}, {"absolute": 0.142825, "percent": 0.392376}],
+      "wages": [{"absolute": 0.0, "percent": 0.0}, {"absolute": 0.0, "percent": 0.0}]
+    },
+    "invariants": {
+      "factorSupplyConsistency": 0.0,
+      "incomeExpenditureConsistency": 1.081696,
+      "marketClearingNorm": 0.0
+    }
+  },
+  "tolerances": {
+    "aggregate_abs": 0.000001,
+    "invariants": {
+      "residualNorm": 0.000000001,
+      "marketClearingNorm": 0.000000001,
+      "factorSupplyConsistency": 0.000000001
+    }
+  }
+}

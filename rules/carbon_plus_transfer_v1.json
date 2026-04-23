@@ -1,0 +1,39 @@
+{
+  "policy_id": "carbon_plus_transfer_v1",
+  "name": "Carbon Tax + Direct Benefit Transfer",
+  "version": "v1",
+  "description": "15% carbon tax with 70% revenue recycled as monthly cash transfers to bottom 60% of households.",
+  "trigger_conditions": ["tax", "transfer"],
+  "cge_ready": true,
+  "macro_effects": {
+    "gdp_change_pct": -0.2,
+    "cpi_change_pct": 1.9,
+    "sectoral_output_pct": { "agriculture": 0.6, "manufacturing": -2.4, "services": 0.3 },
+    "employment_change_pct": -0.4
+  },
+  "distribution_effects": {
+    "poor": { "real_income_change_pct": 1.1, "copc_change_pct": 2.8, "wage_index_change_pct": -0.5 },
+    "middle": { "real_income_change_pct": 0.9, "copc_change_pct": 2.1, "wage_index_change_pct": -0.3 },
+    "rich": { "real_income_change_pct": -0.5, "copc_change_pct": 1.3, "wage_index_change_pct": -0.1 }
+  },
+  "causal_chain": [
+    { "step": "Carbon Tax ↑15%", "effect": "Energy Prices ↑12–14%", "magnitude": "high", "confidence": "high" },
+    { "step": "CPI ↑1.9%", "effect": "Consumption Basket Costs Rise", "magnitude": "medium", "confidence": "high" },
+    { "step": "Transfer Injection (70% revenue)", "effect": "Bottom 60% Disposable Income ↑", "magnitude": "high", "confidence": "high" },
+    { "step": "Transfer > CPI Impact", "effect": "Poor Real Income ↑1.1%, Middle ↑0.9%", "magnitude": "high", "confidence": "medium" },
+    { "step": "Demand Stimulus", "effect": "Services & Agriculture Output ↑, Manufacturing ↓2.4% (cost push)", "magnitude": "medium", "confidence": "medium" }
+  ],
+  "policylab_suggestions": [
+    { "variant_name": "Cap Transfer at 40% Revenue", "policy_delta": "Reduce transfer share to preserve fiscal space for green infrastructure", "outcome_improvement": "GDP drag reduced to -0.1%; fiscal sustainability ↑", "tradeoff": "Poor real income gain drops to +0.4%; middle neutral" },
+    { "variant_name": "Add Public Transit Subsidy", "policy_delta": "Allocate 15% revenue to urban/rural transit fare caps", "outcome_improvement": "CPI impact reduced to 1.5%; poor copc pressure ↓ further", "tradeoff": "Complex administration; delays rural cash disbursement" }
+  ],
+  "provenance": {
+    "baseline_sources": ["NSSO 77th Round", "RBI Annual Report 2023-24", "MOSPI CPI Weights"],
+    "key_assumptions": ["Transfer leakage ~15%", "Marginal propensity to consume (poor) = 0.85", "Fixed exchange rate"],
+    "confidence_note": "Illustrative scenario using simplified CGE logic. Full multi-market equilibration pending."
+  },
+  "cge_placeholder": {
+    "required_inputs": ["social_accounting_matrix", "household_expenditure_matrix", "sectoral_energy_intensity"],
+    "expected_outputs": ["price_vector", "wage_vector", "output_vector", "household_utility_index"]
+  }
+}

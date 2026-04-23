@@ -1,0 +1,18 @@
+{
+  "policy_id": "state_variation_india_v1",
+  "name": "State Variation Overlay (Industrial vs Agrarian)",
+  "version": "v1",
+  "description": "Adjusts baseline elasticity assumptions to account for varying formal/informal labor splits across Indian states.",
+  "trigger_conditions": ["baseline"],
+  "cge_ready": true,
+  "macro_effects": {},
+  "distribution_effects": {},
+  "causal_chain": [],
+  "policylab_suggestions": [],
+  "provenance": {
+    "baseline_sources": ["PLFS 2022-23 State Level Estimates", "ASI 2021"],
+    "key_assumptions": ["Informal sector buffers shock in agrarian states", "Industrial states see sharper immediate output drops but faster recovery"],
+    "confidence_note": "Averages applied at zonal level (North/South/East/West)."
+  },
+  "cge_placeholder": {}
+}
